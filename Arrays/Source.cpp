@@ -47,14 +47,14 @@ double minValueIn(double arr[], const int n);
 int minValueIn(char arr[], const int n);
 int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
-int minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int maxValueIn(int arr[], const int n);
 double maxValueIn(double arr[], const int n);
 int maxValueIn(char arr[], const int n);
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
-int maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void shiftLeft(int arr[], const int n, int number_of_shifts);
 void shiftLeft(double arr[], const int n, int number_of_shifts);
@@ -469,9 +469,9 @@ double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS)
 		}
 	}return min;
 }
-int minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS)
+char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	int min = arr[0][0];
+	char min = arr[0][0];
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
@@ -530,9 +530,9 @@ double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS)
 		}
 	}return max;
 }
-int maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS)
+char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	int max = arr[0][0];
+	char max = arr[0][0];
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
