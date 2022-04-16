@@ -25,16 +25,11 @@ void main()
 
 	int number_of_shifts;
 	cout << "Введите количество сдвигов: "; cin >> number_of_shifts;
-	/*cout << "Сдвиг влево " <<*/ shiftLeft(arr, n, number_of_shifts) /*<< endl*/;
+	shiftLeft(arr, n, number_of_shifts);
 	Print(arr, n);
-	/*	cout << "Сдвиг вправо " <<*/shiftRight(arr, n, number_of_shifts);/*<< endl;*/
-	/*const int m = 8;
-	int brr[m];
-	FillRand(brr, m);
-	Print(brr, m);
-	Sort(brr, m);
-	Print(brr, m);*/
+	shiftRight(arr, n, number_of_shifts);
 	cout << delimiter << endl;
+
 	const int m = 8;
 	double brr[m];
 	FillRand(brr, m);
@@ -47,10 +42,18 @@ void main()
 	cout << "Максимальное значение массива " << maxValueIn(brr, m) << endl;
 	cout << delimiter << endl;
 
-
-	int arr2[ROWS][COLS];
+	char arr2[ROWS][COLS];
 	FillRand(arr2, ROWS, COLS);
 	Print(arr2, ROWS, COLS);
+	cout << delimiter << endl;
+	Sort(arr2, ROWS, COLS);
+	Print(arr2, ROWS, COLS);
+	cout << "Сумма элементов массива: " << Sum(arr2, ROWS, COLS) << endl;
+	cout << "Среднее арифметическое элементов массива " << Avg(arr2, ROWS, COLS) << endl;
+	cout << "Минимальное значение массива " << minValueIn(arr2, ROWS, COLS) << endl;
+	cout << "Максимальное значение массива " << maxValueIn(arr2, ROWS, COLS) << endl;
+	cout << delimiter << endl;
+
 
 }
 
