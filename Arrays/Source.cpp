@@ -545,7 +545,6 @@ int maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS)
 
 void shiftLeft(int arr[], const int n, int number_of_shifts)
 {
-	//cout << "¬ведите количество сдвигов: "; cin >> number_of_shifts;
 	for (int i = 0; i < number_of_shifts; i++)
 	{
 		int buffer = arr[n - 1];
@@ -556,11 +555,9 @@ void shiftLeft(int arr[], const int n, int number_of_shifts)
 		arr[0] = buffer;
 
 	}
-	//return Print(arr, n);
 }
 void shiftLeft(double arr[], const int n, int number_of_shifts)
 {
-	//cout << "¬ведите количество сдвигов: "; cin >> number_of_shifts;
 	for (int i = 0; i < number_of_shifts; i++)
 	{
 		double buffer = arr[n - 1];
@@ -595,7 +592,6 @@ void shiftRight(int arr[], const int n, int number_of_shifts)
 		}
 		arr[n - 1] = buffer;
 	}
-	return Print(arr, n);
 }
 void shiftRight(double arr[], const int n, int number_of_shifts)
 {
@@ -609,7 +605,6 @@ void shiftRight(double arr[], const int n, int number_of_shifts)
 		}
 		arr[n - 1] = buffer;
 	}
-	return Print(arr, n);
 }
 void shiftRight(char arr[], const int n, int number_of_shifts)
 {
@@ -622,5 +617,4 @@ void shiftRight(char arr[], const int n, int number_of_shifts)
 		}
 		arr[n - 1] = buffer;
 	}
-	return Print(arr, n);
 }
