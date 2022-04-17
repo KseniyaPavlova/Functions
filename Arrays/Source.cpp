@@ -1,35 +1,7 @@
-//Arrays
-#include<iostream>
-using namespace std;
+#include"stdafx.h"
+#include"FillRand.h"
 
-#define tab "\t"
-#define delimiter "\n---------------------------------------\n"
-const int ROWS = 3;
-const int COLS = 4;
 
-template<typename T> void FillRand(T arr[], const int n, int minRand = 0, int maxRand = 100);
-template<typename T> void FillRand(T arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
-
-template<typename T> void Print(T arr[], const int n);
-template<typename T> void Print(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T> T Sum(T arr[], const int n);
-template<typename T> T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T> T Avg(T arr[], const int n);
-template<typename T> T Avg(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T> void Sort(T arr[], const int n);
-template<typename T> void Sort(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T> T minValueIn(T arr[], const int n);
-template<typename T> T minValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T> T maxValueIn(T arr[], const int n);
-template<typename T> T maxValueIn(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T> void shiftLeft(T arr[], const int n, int number_of_shifts);
-template<typename T> void shiftRight(T arr[], const int n, int number_of_shifts);
 
 void main()
 {
@@ -85,6 +57,17 @@ template<typename T>void FillRand(T arr[], const int n, int minRand, int maxRand
 		arr[i] = rand() % (maxRand - minRand) + minRand;
 	}
 }
+void FillRand(double arr[], const int n, int minRand, int maxRand)
+{
+
+	for (int i = 0; i < n; i++)
+	{
+		maxRand *= 100;
+		minRand *= 100;
+		arr[i] = rand() % (maxRand - minRand) + minRand;
+		arr[i] /= 100;
+	}
+}
 template<typename T>void FillRand(T arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
 {
 	for (int i = 0; i < ROWS; i++)
@@ -138,11 +121,11 @@ template<typename T>T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
 	return sum;
 }
 
-template<typename T>T Avg(T arr[], const int n)
+template<typename T>double Avg(T arr[], const int n)
 {
 	return (T)Sum(arr, n) / n;
 }
-template<typename T>T Avg(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>double Avg(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	return Sum(arr, ROWS, COLS) / (ROWS*COLS);
 }
@@ -250,6 +233,3 @@ template<typename T> void shiftRight(T arr[], const int n, int number_of_shifts)
 		arr[n - 1] = buffer;
 	}
 }
-
-
-
