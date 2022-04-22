@@ -5,6 +5,7 @@ using namespace std;
 #define VERTICAL_SHIFT		"\n\n\n\n\n\n\n"
 #define HORIZONTAL_SHIFT	"\t\t\t\t\t"
 
+void InitField(char field[], const int n, char player);
 void PrintField(char field[], const int n, char player);
 void Move(char field[], const int n, char player);
 void Check(char field[], const int n, char player);
@@ -15,9 +16,17 @@ void main()
 	const int n = 9;
 	char field[n] = {};
 	//for (int i = 0; i < n; i++)field[i] = i + 49;
-	PrintField(field, n, '0');
+	do
+	{
+		InitField(field, n, '0');
+		cout << "Еще разочек? Enter - да, все остальное - Нет" << endl;
+	} while (_getch() == 13);
 }
-
+void InitField(char field[], const int n, char player)
+{
+	for (int i = 0; i < n; i++)field[i] = 0;
+	PrintField(field, n, player);
+}
 void PrintField(char field[], const int n, char player)
 {
 	system("CLS");
@@ -48,6 +57,7 @@ void Move(char field[], const int n, char player)
 		else if (field[key - 49] != 0 && field[key - 49] != ' ') cout << "\aКлетка уже занята\n";
 	} while (key<'1' || key>'9' || field[key - 49] != 0 && field[key - 49] != ' ');
 	field[key - 49] = player;
+
 	PrintField(field, n, player /*== 'X' ? '0' : 'X'*/);
 	//Check(field, n, player);
 }
@@ -69,6 +79,34 @@ void Check(char field[], const int n, char player)
 		cout << player << " победил!\n";
 		return;
 	}
+
+	//for (int i = 0; i < 9; i++)
+	//{
+	//	if (/*field[i] != ' ' &&*/ field[i] != 0)
+	//	{
+	//		if (i == 8)
+	//		{
+	//			cout << "Ничья\n";
+	//			return;
+	//		}
+	//	}
+	//	else break;
+	//}
+	bool draw = true;
+	for (int i = 0; i < n; i++)
+	{
+		if (field[i] == 0 /*|| field[i] == ' '*/)
+		{
+			draw = false;
+			break;
+		}
+	}
+	if (draw)
+	{
+		cout << "Ничья" << endl;
+		return;
+	}
+	//if (field[0] != ' ' && field[1] != ' ' && field[2] != ' '&& field[3] != ' '&& field[4] != ' '&& field[5] != ' '&& field[6] != ' '&& field[7] != ' '&& field[8] != ' ' && field[0] != 0 && field[1] != 0 && field[2] != 0 && field[3] != 0 && field[4] != ' '&& field[5] != 0 && field[6] != 0 && field[7] != 0 && field[8] != 0) cout << " Ничья ";
 	//PrintField(field, n, player == 'X' ? '0' : 'X');
 	Move(field, n, player == 'X' ? '0' : 'X');
 }
